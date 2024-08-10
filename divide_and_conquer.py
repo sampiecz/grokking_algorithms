@@ -1,5 +1,3 @@
-import pudb
-
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 
@@ -28,10 +26,10 @@ def recursive_maximum(numbers):
 
     max_of_rest = recursive_maximum(numbers[1:])
 
-    if list[0] > max_of_rest:
-        return list[0]
+    if numbers[0] > max_of_rest:
+        return numbers[0]
     else:
-        max_of_rest
+        return max_of_rest
 
 
 print(recursive_count(numbers))
@@ -76,3 +74,28 @@ def quicksort(numbers):
 
 
 print(quicksort([4, 5, 2, 1, 6, 8, 9, 7]))
+
+
+def largest_square(width, height):
+    if width == height:
+        return [(width, height)]
+
+    if width > height:
+        width, height = height, width
+
+    squares = []
+
+    square_size = width
+
+    squares.append((square_size, square_size))
+
+    remaining_width = width
+    remaining_height = height - square_size
+
+    remaining_squares = largest_square(remaining_width, remaining_height)
+    squares.extend(remaining_squares)
+
+    return squares
+
+
+print(largest_square(width=1680, height=640))
