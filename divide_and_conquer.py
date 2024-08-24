@@ -60,16 +60,11 @@ print(binary_search(numbers, 4))
 
 def quicksort(numbers):
     if len(numbers) < 2:
-        print(f"numbers: {numbers}")
         return numbers
     else:
         pivot = numbers[0]
         less = [i for i in numbers[1:] if i <= pivot]
         greater = [i for i in numbers[1:] if i > pivot]
-        print(pivot)
-        print(numbers)
-        print(less)
-        print(greater)
         return quicksort(less) + [pivot] + quicksort(greater)
 
 
